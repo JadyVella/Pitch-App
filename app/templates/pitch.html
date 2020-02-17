@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/pitch.css')}}">
+{% endblock%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pitching best ideas</title>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Pickup Lines</h3>
+                {{wtf.quick_form(pickup_lines_form)}}
+            </div>
+            <div class="col-md-4">
+                <h3>Interview</h3>
+                {{wtf.quick_form(interview_form)}}
+            </div>
+            <div class="col-md-4">
+                <h3>Business Plan</h3>
+                {{wtf.quick_form(business_plan_form)}}
+            </div>
+        </div>
+
+        {% endblock %}
+    </div>
+    
+</body>
+</html>
