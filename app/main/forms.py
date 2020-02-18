@@ -5,7 +5,7 @@ from wtforms.validators import Required
 class PickUpLines(FlaskForm):
 
     title = StringField('Pickup lines title',validators=[Required()])
-    Pitch = TextAreaField('Pickup lines pitch',validators=[Required()])
+    pitch = TextAreaField('Pickup lines pitch',validators=[Required()])
     submit = SubmitField('Submit')
 
 
