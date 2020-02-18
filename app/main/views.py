@@ -2,6 +2,7 @@ from flask import render_template,url_for,redirect
 from . import main
 from .forms import PickUpLines, Interview, BusinessPlan
 from ..models import PICKUPLINES, INTERVIEW
+from flask_login import login_required
 
 @main.route('/')
 def index():
@@ -16,6 +17,7 @@ def index():
 
 
 @main.route('/pitch', methods = ['GET', 'POST'])
+@login_required
 def pitch():
     
     pickuplines_form = PickUpLines()
