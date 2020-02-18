@@ -21,3 +21,8 @@ class BusinessPlan(FlaskForm):
     title = StringField('Business plan title',validators=[Required()])
     Pitch = TextAreaField('Business plan pitch',validators=[Required()])
     submit = SubmitField('Submit')
+
+class UpdateProfile(FlaskForm):
+
+    bio = TextAreaField('More about you',validators=[Required()])
+    submit = SubmitField('Submit')
