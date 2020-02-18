@@ -1,7 +1,7 @@
-from flask import render_template,url_for,redirect
+from flask import render_template, url_for, redirect, request, abort
 from . import main
 from .forms import PickUpLines, Interview, BusinessPlan
-from ..models import PICKUPLINES, INTERVIEW
+from ..models import PICKUPLINES, INTERVIEW, User
 from flask_login import login_required
 
 @main.route('/')
@@ -37,5 +37,16 @@ def pitch():
     title = 'Pitching best ideas'
     
     return render_template('pitch.html',title = title, pickup_lines_form = pickuplines_form, interview_form = interview_form, business_plan_form = businessplan )
+
+
+
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user)
 
 
