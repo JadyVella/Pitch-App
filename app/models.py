@@ -10,6 +10,7 @@ def load_user(user_id):
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
+
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
@@ -42,7 +43,7 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     pitch_title = db.Column(db.String(255))
-    pitch_field = db.Column(db.String)
+    pitch_field = db.Column(db.String())
     users = db.relationship('User',backref = 'comment',lazy = "dynamic")
 
 

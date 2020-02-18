@@ -24,5 +24,5 @@ class BusinessPlan(FlaskForm):
 
 class UpdateProfile(FlaskForm):
 
-    bio = TextAreaField('More about you',validators=[Required()])
+    bio = TextAreaField('More about you', validators=[Required()])
     submit = SubmitField('Submit')
