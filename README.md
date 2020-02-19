@@ -15,3 +15,6 @@ THEN: Vote on the pitch they and give it a downvote or upvote,See the pitches ot
 
 # Author Information
 The person who created this application and designed is Felix Ouma
+
+# Set Up Instruction
+To view this project in heroku, follow this link https://pitch112-2.herokuapp.com/
