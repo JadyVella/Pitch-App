@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, request, abort
 from . import main
-from .forms import PickUpLines, Interview, BusinessPlan, UpdateProfile
+from .forms import PickUpLines, Interview, BusinessPlan
 from ..models import PICKUPLINES, INTERVIEW, User
 from .. import db
 from flask_login import login_required
@@ -17,57 +17,52 @@ def index():
     return render_template('index.html',title = title,message = message)
 
 
-@main.route('/pitch', methods = ['GET', 'POST'])
-@login_required
+@main.route('/pitch')
 def pitch():
     
-    pickuplines_form = PickUpLines()
-    interview_form = Interview()
-    businessplan = BusinessPlan()
-
-    if pickuplines_form.validate_on_submit():
-        title = pickuplines_form.title.data
-        pitchs = pickuplines_form.pitch.data
-
-        new_pitchs = PICKUPLINES(title=title,pitch=pitchs)
-
-
-        new_pitchs.save_pickupline()
-        return redirect(url_for('.index',title=title))
+    '''
+    view pitch page function that returns the pitch page and its data
+    '''
 
     title = 'Pitching best ideas'
     
-    return render_template('pitch.html',title = title, pickup_lines_form = pickuplines_form, interview_form = interview_form, business_plan_form = businessplan )
+    return render_template('pitch.html', title = title)
 
 
-
-@main.route('/user/<uname>')
-def profile(uname):
-    user = User.query.filter_by(username = uname).first()
-
-    if user is None:
-        abort(404)
-
-    return render_template("profile/profile.html", user = user)
-
-
-
-@main.route('/user/<uname>/update',methods = ['GET','POST'])
+@main.route('/business_plan', methods = ['GET','POST'])
 @login_required
-def update_profile(uname):
+def business_plan():
+    form = BusinessPlan()
+    '''
+    view business_plan function that returns the business_plan page and its data
+    '''
 
-    user = User.query.filter_by(username = uname).first()
-    if user in None:
-        abort(404)
+    title = 'Business Plan'
 
-    form = UpdateProfile()
+    return render_template('business_plan.html', title = title, business_plan_form = form)
 
-    if form.validate_on_submit():
-        user.bio = form.bio.data
 
-        db.session.add(user)
-        db.session.commit()
+@main.route('/interview')
+@login_required
+def interview():
+    form = Interview()
+    '''
+    view interview function that returns the interview page and its data
+    '''
 
-        return redirect(url_for('.profile',uname=user.username))
-    return render_template('profile/update.html',form = form)
+    title = 'Interview'
 
+    return render_template('interview.html', title = title,interview_form = form)
+
+
+@main.route('/pick_up_lines')
+@login_required
+def pick_up_lines():
+    form = PickUpLines()
+    '''
+    view pick_up_lines function that returns the pick_up_lines page and its data
+    '''
+
+    title = 'Pick Up Lines'
+
+    return render_template('pick_up_lines.html', title = title, pickup_lines_form = form)

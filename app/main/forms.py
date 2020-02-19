@@ -12,17 +12,23 @@ class PickUpLines(FlaskForm):
 class Interview(FlaskForm):
 
     title = StringField('Interview title',validators=[Required()])
-    Pitch = TextAreaField('Interview pitch',validators=[Required()])
+    pitch = TextAreaField('Interview pitch',validators=[Required()])
     submit = SubmitField('Submit')
 
 
 class BusinessPlan(FlaskForm):
 
     title = StringField('Business plan title',validators=[Required()])
-    Pitch = TextAreaField('Business plan pitch',validators=[Required()])
+    pitch = TextAreaField('Business plan pitch',validators=[Required()])
     submit = SubmitField('Submit')
 
 class UpdateProfile(FlaskForm):
 
     bio = TextAreaField('More about you', validators=[Required()])
     submit = SubmitField('Submit')
+
+
+class CommentForm(FlaskForm):
+
+    comments = TextAreaField('Leave your comment', validators=[Required()])
+    submit = SubmitField("Leave your comment")

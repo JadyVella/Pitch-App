@@ -15,8 +15,6 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
     comment_id = db.Column(db.Integer,db.ForeignKey('comments.id'))
-    bio = db.Column(db.String(255))
-    profile_pic_path = db.Column(db.String())
     password_hash = db.Column(db.String(255))
     pass_secure = db.Column(db.String(255))
 
@@ -112,3 +110,32 @@ class BUSINESSPLAN:
 
     def save_businessplan(self):
         BUSINESSPLAN.all_businessplan.append(self)
+
+
+class COMMENT:
+    all_comments = []
+    def __init__(self, id, title, comment, user):
+        self.id = id
+        self.title = title
+        self.comment = comment
+        self.comment = comment
+        self.user = user
+
+    def save_interview(self):
+        INTERVIEW.all_interview.append(self)
+
+
+    @classmethod
+    def clear_pitchs(cls):
+        PICKUPLINES.all_pickuplines.clear()
+
+
+    @classmethod
+    def get_pitchs(cls):
+
+        response = []
+
+        for pitchs in cls.all_interview:
+            response.append(pitchs)
+
+        return response

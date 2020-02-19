@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pitching best ideas</title>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Interview</h3>
+                {{wtf.quick_form(interview_form)}}
+            </div>
+        </div>
+
+        {% endblock %}
+    </div>
+    
+</body>
+</html>
