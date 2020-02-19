@@ -18,3 +18,7 @@ The person who created this application and designed is Felix Ouma
 
 # Set Up Instruction
 To view this project in heroku, follow this link https://pitch112-2.herokuapp.com/
+
+# Technologies
+* Python3.7
+* Flask
