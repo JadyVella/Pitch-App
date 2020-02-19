@@ -22,3 +22,8 @@ To view this project in heroku, follow this link https://pitch112-2.herokuapp.co
 # Technologies
 * Python3.7
 * Flask
+
+# Contact Information
+* Email: felixouma379@gmail.com
+* cell No: +254792231660
+* Facebook: Jady Vella
