@@ -27,3 +27,7 @@ To view this project in heroku, follow this link https://pitch112-2.herokuapp.co
 * Email: felixouma379@gmail.com
 * cell No: +254792231660
 * Facebook: Jady Vella
+
+# License & Copyright
+- Licensed under [MIT LICENCE](LICENCE)
+Copyright (c) 2020 **Felix Ouma**
