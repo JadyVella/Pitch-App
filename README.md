@@ -11,3 +11,7 @@ Create an application that allows users to use that one minute wisely. The pitch
 WHEN: The users will submit their one minute pitches,The user is Signed in, A user signs up
 
 THEN: Vote on the pitch they and give it a downvote or upvote,See the pitches other people have posted, leave a comment, receive a welcoming email, View the pitches the user has created in his or her own profile page, comment on the different pitches and leave feedback,submit a pitch in any category, view different categories.
+
+
+# Author Information
+The person who created this application and designed is Felix Ouma
